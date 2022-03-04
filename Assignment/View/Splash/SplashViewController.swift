@@ -31,6 +31,7 @@ class SplashViewController : UIViewController {
         super.viewDidLoad()
         
         setupViews()
+        initData()
     }
     
     func setupViews() {
@@ -47,8 +48,15 @@ class SplashViewController : UIViewController {
         descLabel.topAnchor.constraint(equalTo: indicatorView.bottomAnchor, constant: 16).isActive = true
         descLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16).isActive = true
     }
+    
+    func initData() {
+        output.requestCityData()
+    }
 }
 
 
 extension SplashViewController: SplashPresenterOutputProtocol {
+    func requestCityDataSuccess(response: [CityModel]) {
+        //TODO: move screen
+    }
 }

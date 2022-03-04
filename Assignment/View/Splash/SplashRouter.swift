@@ -9,6 +9,7 @@ import Foundation
 
 class SplashRouter {
     weak var viewController: SplashViewController!
+    var dataSource: SplashViewControllerDataSource?
 }
 
 extension SplashRouter: SplashRouterProtocol {

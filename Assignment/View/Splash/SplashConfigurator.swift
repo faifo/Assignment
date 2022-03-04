@@ -7,7 +7,7 @@
 
 import Foundation
 
-    // MARK: Configuration
+// MARK: Configuration
 class SplashConfigurator {
     class func viewcontroller() -> SplashViewController {
         let viewController = SplashViewController()
@@ -19,7 +19,8 @@ class SplashConfigurator {
         
         let router = SplashRouter()
         router.viewController = viewController
-        
+        router.dataSource = interactor
+
         viewController.output = interactor
         viewController.router = router
         
@@ -27,18 +28,26 @@ class SplashConfigurator {
     }
 }
 
-    // MARK: View Interface
+// MARK: Data passing
+protocol SplashViewControllerDataSource: AnyObject {
+    var url: URL? { get set }
+}
+
+// MARK: View Interface
 protocol SplashViewControllerOutputProtocol {
+    func requestCityData()
 }
 
-    // MARK: Interactor Interface
+// MARK: Interactor Interface
 protocol SplashInteractorOutputProtocol {
+    func requestCityDataSuccess(response: [CityModel])
 }
 
-    // MARK: Presenter Interface
+// MARK: Presenter Interface
 protocol SplashPresenterOutputProtocol: AnyObject {
+    func requestCityDataSuccess(response: [CityModel])
 }
 
-    // MARK: Router
+// MARK: Router
 protocol SplashRouterProtocol {
 }

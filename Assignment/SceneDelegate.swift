@@ -18,7 +18,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         guard let scene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: scene)
+        let url = URL(string: "https://raw.githubusercontent.com/SiriusiOS/ios-assignment/main/cities.json")!
         let splashViewController = SplashConfigurator.viewcontroller()
+        splashViewController.router.dataSource?.url = url
         window?.rootViewController = UINavigationController(rootViewController: splashViewController)
         window?.makeKeyAndVisible()
     }
