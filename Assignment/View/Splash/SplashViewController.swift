@@ -57,6 +57,6 @@ class SplashViewController : UIViewController {
 
 extension SplashViewController: SplashPresenterOutputProtocol {
     func requestCityDataSuccess(response: [CityModel]) {
-        //TODO: move screen
+        router.pushToSearch(response: response)
     }
 }
