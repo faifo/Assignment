@@ -7,7 +7,7 @@
 
 import Foundation
 
-    // MARK: Configuration
+// MARK: Configuration
 class SearchConfigurator {
     class func viewcontroller() -> SearchViewController {
         let viewController = SearchViewController()
@@ -28,27 +28,28 @@ class SearchConfigurator {
     }
 }
 
-    // MARK: Data passing
+// MARK: Data passing
 protocol SearchViewControllerDataSource: AnyObject {
+    var searchHelper: SuffixSearchHelper<CityModel>? { get set }
     var searchCityModels: [CityModel]? { get set }
 }
 
-    // MARK: View Interface
+// MARK: View Interface
 protocol SearchViewControllerOutputProtocol {
     func search(text: String)
 }
 
-    // MARK: Interactor Interface
+// MARK: Interactor Interface
 protocol SearchInteractorOutputProtocol {
     func searchSuccess()
 }
 
-    // MARK: Presenter Interface
+// MARK: Presenter Interface
 protocol SearchPresenterOutputProtocol: AnyObject {
     func searchSuccess()
 }
 
-    // MARK: Router
+// MARK: Router
 protocol SearchRouterProtocol {
     
 }

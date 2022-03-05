@@ -135,7 +135,7 @@ extension SearchViewController: UITableViewDataSource {
 
 extension SearchViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-       //TODO: move to map
+       //TODO : move to map
     }
 }
 

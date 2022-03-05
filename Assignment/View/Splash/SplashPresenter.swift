@@ -14,8 +14,9 @@ class SplashPresenter {
 extension SplashPresenter: SplashInteractorOutputProtocol {
     func requestCityDataSuccess(response: [CityModel]) {
         let sortedCityModels = response.sorted(by: { $0.name < $1.name })
+        let helper = SuffixSearchHelper(models: sortedCityModels)
         DispatchQueue.main.async {
-            self.output.requestCityDataSuccess(response: sortedCityModels)
+            self.output.requestCityDataSuccess(helper: helper)
         }
     }
 }

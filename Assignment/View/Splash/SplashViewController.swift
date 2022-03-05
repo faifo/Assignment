@@ -7,8 +7,7 @@
 
 import UIKit
 
-class SplashViewController : UIViewController {
-    
+class SplashViewController: UIViewController {
     var output: SplashViewControllerOutputProtocol!
     var router: SplashRouter!
     
@@ -54,9 +53,8 @@ class SplashViewController : UIViewController {
     }
 }
 
-
 extension SplashViewController: SplashPresenterOutputProtocol {
-    func requestCityDataSuccess(response: [CityModel]) {
-        router.pushToSearch(response: response)
+    func requestCityDataSuccess(helper: SuffixSearchHelper<CityModel>) {
+        router.pushToSearch(helper: helper)
     }
 }

@@ -13,9 +13,9 @@ class SplashRouter {
 }
 
 extension SplashRouter: SplashRouterProtocol {
-    func pushToSearch(response: [CityModel]) {
+    func pushToSearch(helper: SuffixSearchHelper<CityModel>) {
         let searchViewController = SearchConfigurator.viewcontroller()
-        searchViewController.router.dataSource?.searchCityModels = response
+        searchViewController.router.dataSource?.searchHelper = helper
         viewController.navigationController?.pushViewController(searchViewController, animated: true)
     }
 }

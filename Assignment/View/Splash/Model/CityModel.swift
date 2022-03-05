@@ -19,6 +19,16 @@ struct CityModel: Decodable {
     }
 }
 
+extension CityModel: Searchable {
+    var searchText: String {
+        return getTitle()
+    }
+    
+    static func == (lhs: CityModel, rhs: CityModel) -> Bool {
+        return lhs._id == rhs._id
+    }
+}
+
 struct Coordinate: Decodable, Hashable {
     let lon: Double
     let lat: Double

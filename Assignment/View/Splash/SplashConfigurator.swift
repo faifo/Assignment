@@ -20,7 +20,7 @@ class SplashConfigurator {
         let router = SplashRouter()
         router.viewController = viewController
         router.dataSource = interactor
-
+        
         viewController.output = interactor
         viewController.router = router
         
@@ -45,9 +45,10 @@ protocol SplashInteractorOutputProtocol {
 
 // MARK: Presenter Interface
 protocol SplashPresenterOutputProtocol: AnyObject {
-    func requestCityDataSuccess(response: [CityModel])
+    func requestCityDataSuccess(helper: SuffixSearchHelper<CityModel>)
 }
 
 // MARK: Router
 protocol SplashRouterProtocol {
+    func pushToSearch(helper: SuffixSearchHelper<CityModel>)
 }
