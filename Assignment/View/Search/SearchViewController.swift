@@ -135,7 +135,11 @@ extension SearchViewController: UITableViewDataSource {
 
 extension SearchViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-       //TODO : move to map
+        let cityModel = router.dataSource?.searchCityModels?[indexPath.row]
+        let mapViewController = MapConfigurator.viewcontroller()
+        mapViewController.router.dataSource?.cityModel = cityModel
+        navigationController?.pushViewController(mapViewController, animated: true)
+        
     }
 }
 
